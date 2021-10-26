@@ -20,6 +20,12 @@
 </body>
 ```
 
+### CDN 사용
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/kkn1125/typer@patch-010/typer.js" integrity="sha384-eZvVxdQh+LsT366wiWMLC32Lmq4Ys6A8dAdS7kzgRuMINWnKzEBZ2JpyT1tvnLRs" crossorigin="anonymous"></script>
+```
+
 ### 초기화 옵션 설정
 
 ```javascript
