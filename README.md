@@ -23,6 +23,12 @@
 ### CDN 사용
 
 ```html
+<!-- v0.2.0 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v020/typer.css" integrity="sha384-VbWnIJQSG+E1SZUWa0XR8wgy50XDwAcF9A0vNbtXqGvWUP9BiHJg8L3UFXQv9a14" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v020/typer.js" integrity="sha384-TjFbiXfZsWbm5r2BN+wk//8Y2G4UW+IJTvn+Hi69spImwbD0+SLOA55rMC2ScW10" crossorigin="anonymous"></script>
+
+<!-- v0.1.0 -->
 <script src="https://cdn.jsdelivr.net/gh/kkn1125/typer@patch-010/typer.js" integrity="sha384-eZvVxdQh+LsT366wiWMLC32Lmq4Ys6A8dAdS7kzgRuMINWnKzEBZ2JpyT1tvnLRs" crossorigin="anonymous"></script>
 ```
 
@@ -53,10 +59,17 @@ const typer = Typer.init({
                 }
             }
         ],
+        // 아래 default 값입니다.
         speed: 0.1,
         delay: 1,
-        loop: true,
-        loopDelay: 20,
+        loop: false,
+        loopDelay: 1,
+        start: 0,
+        eraseMode: false,
+        eraseSpeed: 0.1,
+        style: {
+            cursorBlink: 'vertical'
+        },
     }
 })
 ```
