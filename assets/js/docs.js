@@ -1,3 +1,8 @@
+/**
+ * Typing v0.2.0 (https://github.com/kkn1125/typer)
+ * Copyright 2021 The Typer Authors kimson
+ * Licensed under MIT (https://github.com/kkn1125/typer/blob/main/LICENSE)
+ */
 let codes = document.querySelectorAll('.code span');
 codes.forEach(code => {
     code.innerHTML = highlighting(code.innerHTML.trim());
