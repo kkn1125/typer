@@ -5,29 +5,153 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-        <link rel="stylesheet" href="main.css">
-        <title data-lang-name="title" data-lang-speed="0.8" data-lang-loop="false">Document</title>
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+            rel="stylesheet">
+        <!-- google font -->
+
+        <link rel="stylesheet" href="assets/css/docs.css">
+        <link rel="stylesheet" href="typer.css">
+        <title data-typer-name="title" data-typer-speed="0.8" data-typer-loop="false">Typer</title>
     </head>
 
     <body>
-        <h1 data-lang-name="hangul" data-lang-delay="2" data-lang-loop="true">한글 분해 / 조합 테스트</h1>
+        <div class="sticky-gnb">
+            <nav class="gnb">
+                <div class="h3 ps-1 pe-3 mb-0 brand">
+                    <a href="#">Typer</a>
+                </div>
+                <div class="menu-wrap">
+                    <ul class="menu-list">
+                        <li>
+                            <a href="#typer">Typer란</a>
+                        </li>
+                        <li>
+                            <a href="#usage">사용법</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 
-        <div id="output"></div>
+        <div class="main">
+            <div class="container">
+                <div class="divider-sm"></div>
+                <div class="h1" data-docs-anchor="title">
+                    Typer Docs
+                </div>
+                <div class="h3" id="typer" data-docs-anchor="typer">Typer는 무엇인가</div>
+                <div class="h6 pointBox" data-typer-name="innerTitle" data-typer-erase-mode="true"
+                    data-typer-erase-speed="0.01" data-typer-cursor-blink="vertical">
+                    Typer는 텍스트 타이핑 효과를 쉽게 사용할 수 있도록 구현되었습니다.
+                </div>
+            </div>
+            <div class="container">
+                <div class="h3" id="usage" data-docs-anchor="usage">사용법</div>
+                <div class="h6 pointBox" data-typer-name="innerTitle2" data-typer-erase-mode="true"
+                    data-typer-erase-speed="0.1" data-typer-cursor-blink="vertical">
+                    data-typer-* 속성으로 이루어져 있으며 속성 값을 특정한 것이 아니기때문에 자유롭게 개인 취향에 따라 타이핑 효과를 커스터마이징 할 수 있습니다.
+                </div>
+                <div class="cardWrap">
+                    <div class="usageWrap">
+                        <div class="usageCard">
+                            <div class="code">
+                                <span>
+                                    <div data-typer-name="box1" data-typer-speed="0.2" data-typer-delay="1"
+                                        data-typer-loop="true" data-typer-start="1" data-typer-loop-delay="1"
+                                        typer-exam>텍스트
+                                        입력
+                                    </div>
+                                </span>
+                            </div>
+                            <div data-typer-name="box1" data-typer-speed="0.2" data-typer-delay="1"
+                                data-typer-loop="true" data-typer-start="1" data-typer-loop-delay="1"></div>
+                            <span class="explain">태그 내부에 텍스트를 기입하거나 초기화 옵션에서 지정한 words가 타이핑 됩니다.</span>
+                        </div>
+                    </div>
+                    <div class="usageWrap">
+                        <div class="usageCard">
+                            <div class="code">
+                                <span>
+                                    <a href="#none" id="test" data-typer-cursor-blink="none" typer-exam>계속 바뀌는 링크</a>
+                                </span>
+                            </div>
+                            <a href="#none" id="test" data-typer-cursor-blink="none">링크태그도 타이핑 대상입니다</a>
+                            <span class="explain">a 태그 또한 타이핑 효과가 적용되며, 커서 깜빡임을 단일/전역으로 켜고 끌 수 있습니다.
+                                <kbd>data-typer-cursor-blink</kbd>가 none이면 위의 예제처럼 전역 스타일을 무시할 수 있습니다.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="usageWrap">
+                        <div class="usageCard">
+                            <div class="code">
+                                <span>
+                                    <div id="test2" data-typer-cursor-blink="none" typer-exam></div>
+                                </span>
+                            </div>
+                            <a href="#none" id="test2" data-typer-cursor-blink="none">계속 바뀌는 링크</a>
+                            <span class="explain">id만 지정하여 초기화 옵션에서 타이핑 효과를 줄 수도 있습니다.</span>
+                        </div>
+                    </div>
+                    <div class="usageWrap">
+                        <div class="usageCard">
+                            <div class="code">
+                                <span>
+                                    <div data-typer-name="box2" data-typer-speed="0.05" data-typer-delay="1"
+                                        data-typer-loop="true" data-typer-start="1" data-typer-loop-delay="1"
+                                        data-typer-cursor-blink="vertical" data-typer-erase-mode="true"
+                                        data-typer-erase-speed="0.06" typer-exam>텍스트
+                                        입력
+                                    </div>
+                                </span>
+                            </div>
+                            <div data-typer-name="box2" data-typer-speed="0.05" data-typer-delay="1"
+                                data-typer-loop="true" data-typer-start="1" data-typer-loop-delay="1"
+                                data-typer-cursor-blink="vertical" data-typer-erase-mode="true"
+                                data-typer-erase-speed="0.06">
+                                name, speed, delay, loop start loopDelay, cursorBlink를 전부 적용한 예제입니다
+                            </div>
+                            <span class="explain">속성을 전부 적용시킨 예제입니다.</span>
+                        </div>
+                    </div>
 
-        <div data-lang-name="tp" data-lang-speed="0.5" data-lang-delay="2" data-lang-loop="true" data-lang-start="1"
-            data-lang-loop-delay="1">
-            가오가이거!</div>
+                </div>
 
-        <a href="" id="test">test</a>
-        <!-- Option 1: Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
-        </script>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="divider"></div>
+        <div class="divider"></div>
+
+        <footer class="footer">
+            <div>
+                <div class="py-3">
+                    <a href="https://github.com/kkn1125/typer" target="_blank">
+                        Typer Github
+                    </a>
+                    <span class="vt"></span>
+                    <a href="https://kkn1125.github.io/" target="_blank">
+                        Kimson Blog
+                    </a>
+                    <span class="vt"></span>
+                    <a href="chaplet01@gmail.com" target="_blank">
+                        Send Mail
+                    </a>
+                </div>
+                <hr>
+                <div class="text-center copyright py-4">
+                    copyright 2021 Typer Authors
+                    <br>
+                    made by kimson
+                </div>
+            </div>
+        </footer>
+
         <script src="typer.js"></script>
+        <script src="assets/js/docs.js"></script>
         <script src="index.js"></script>
     </body>
 

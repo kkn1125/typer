@@ -1,0 +1,64 @@
+@charset "utf-8";
+/**
+ * Typing v0.2.0 (https://github.com/kkn1125/typer)
+ * Copyright 2021 The Typer Authors kimson
+ * Licensed under MIT (https://github.com/kkn1125/typer/blob/main/LICENSE)
+ */
+
+[data-typer-name]{
+    position: relative;
+    user-select: none;
+}
+
+[data-typer-name]::before{
+    content: '';
+    display: inline-block;
+    height: 1em;
+    width: 1px;
+}
+
+[data-typer-cursor-blink="none"]::after{
+    content: '';
+}
+
+[data-typer-cursor-blink="vertical"]::after,
+[data-typer-cursor-blink="horizontal"]::after{
+    position: relative;
+    bottom: 0%;
+    margin-left: 0.1em;
+    content: '';
+    display: inline-block;
+    background-color: gray;
+}
+
+[data-typer-cursor-blink="vertical"]::after{
+    height: 1em;
+    width: 0.3em;
+    animation: vertical 500ms infinite;
+    -webkit-animation: vertical 500ms infinite;
+}
+
+[data-typer-cursor-blink="horizontal"]::after{
+    height: 0.2em;
+    width: 0.7em;
+    animation: horizontal 500ms infinite;
+    -webkit-animation: horizontal 500ms infinite;
+}
+
+@keyframes vertical {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes horizontal {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
