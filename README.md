@@ -38,6 +38,7 @@
 // index.js
 const typer = Typer.init({
     typer: {
+        // data-typer-name 지정태그에 텍스트 추가 모습
         words: {
             tp:
                 ['순차적으로',
@@ -47,19 +48,32 @@ const typer = Typer.init({
             ,
             hangul: '1회 작성은 배열없이 가능합니다.'
         },
-        custom:[
-            {
-                name:'test',
-                words:['wow'],
-                dataset:{
-                    speed: 1,
+        // 태그 id를 지정하여 텍스트 및 옵션을 추가하는 모습
+        custom: {
+            test: {
+                words: ['계속 변경될 수 있습니다.'],
+                dataset: {
+                    speed: 0.05,
                     delay: 1,
-                    loop: false,
+                    loop: true,
                     loopDelay: 1,
+                    eraseMode: true,
+                    eraseSpeed: 0.1,
+                }
+            },
+            test2: {
+                words: ['지금은 다른 이름'],
+                dataset: {
+                    speed: 0.05,
+                    delay: 1,
+                    loop: true,
+                    loopDelay: 1,
+                    eraseMode: true,
+                    eraseSpeed: 0.1,
                 }
             }
-        ],
-        // 아래 default 값입니다.
+        },
+        // 전역 스타일 값 지정
         speed: 0.1,
         delay: 1,
         loop: false,
@@ -85,7 +99,11 @@ const typer = Typer.init({
 |5|loop|타이핑 객체 전역의 타이핑 텍스트들을 무한으로 반복시킵니다.|false|boolean|
 |6|loopDelay|타이핑 객체 전역의 타이핑 텍스트들을 반복할 때 지연시간을 지정합니다.|1|s|
 |ㄴ|`example`|'텍스트1' -> delay -> '텍스트2' -> looDelay -> '텍스트1' ...||
-|6|start|타이핑 객체 전역의 타이핑 시작시간을 지연합니다.|1|s|
+|7|start|타이핑 객체 전역의 타이핑 시작시간을 지연합니다.|1|s|
+|8|eraseMode|타이핑 객체 전역의 eraseMode 적용을 합니다.|false|boolean|
+|9|eraseSpeed|타이핑 객체 전역의 erase 속도를 지정합니다.|0.1|s|
+|10|style|타이핑 관련 css를 전역에 지정합니다.|-||
+|ㄴ|cursorBlink|커서 깜빡임 스타일을 지정합니다.|'vertical'|string|
 
 ### 태그 속성 값 설정
 
@@ -95,8 +113,13 @@ const typer = Typer.init({
 |---|---|---|---|---|
 |1|name|타이핑 타겟 태그에 이름을 부여합니다.|전역옵션|string|
 |2|speed|대상 태그의 타이핑 속도를 지정합니다.|전역옵션|s|
-|2|loop|대상 태그의 타이핑 반복을 지정합니다|전역옵션|boolean|
-|2|start|대상 태그의 타이핑 시작을 지연시킵니다.|전역옵션|s|
+|3|delay|대상 태그의 다음 타이핑을 지연합니다.|전역옵션|s|
+|4|loop|대상 태그의 타이핑 반복을 지정합니다|전역옵션|boolean|
+|5|loopDelay|대상 태그의 타이핑 반복을 지연합니다.|전역옵션|s|
+|6|start|대상 태그의 타이핑 시작을 지연시킵니다.|전역옵션|s|
+|7|eraseMode|대상 태그의 다음 타이핑으로 넘어가기 전 지우는 효과를 적용합니다.|전역옵션|boolean|
+|8|eraseSpeed|대상 태그의 타이핑 eraseMode 속도를 지정합니다.|전역옵션|s|
+|9|cursorBlink|대상 태그의 타이핑 css를 단일 지정합니다.|전역옵션|string|
 
 
 ### 기본 원리
