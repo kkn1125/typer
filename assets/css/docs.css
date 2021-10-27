@@ -24,6 +24,65 @@
     --ty-noto: 'Noto Sans KR', sans-serif;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
+.copyWrap{
+    position: relative;
+}
+
+.copy{
+    user-select: none;
+    cursor: pointer;
+    position: absolute;
+    padding: .3rem .5rem;
+    font-size: .8rem;
+    right: 10px;
+    top: 50%;
+    background: var(--ty-brand);
+    color: var(--ty-dark);
+    border: none;
+    border-radius: .3rem;
+    -webkit-border-radius: .3rem;
+    -moz-border-radius: .3rem;
+    -ms-border-radius: .3rem;
+    -o-border-radius: .3rem;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+textarea{
+    background: var(--ty-point);
+    padding: 1rem 4rem 1rem 1rem !important;
+    margin: 2rem 0 0 !important;
+    user-select: none;
+    pointer-events: none;
+    color: white;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
+
+.copyWrap::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+textarea:focus-visible{
+    outline: none;
+}
+
 html,
 body{
     margin: 0;

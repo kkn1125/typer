@@ -39,6 +39,27 @@ function titleHandler(){
         link.classList.add('link');
         tag.append(link);
     });
+
+    let ta = [...document.querySelectorAll('textarea')];
+    ta.map(t=>{
+        let copy = document.createElement('span');
+        copy.innerHTML = 'copy';
+        copy.classList.add('copy');
+        t.insertAdjacentElement('afterend',copy);
+        copy.addEventListener('click',(ev)=>{
+            let tg = ev.target.previousElementSibling;
+            let tx = document.createElement('textarea');
+            tx.innerHTML = tg.innerHTML.trim();
+            document.body.append(tx);
+            tx.select();
+            document.execCommand('copy');
+            tx.remove();
+            copy.innerHTML = 'copy done! ✅';
+            setTimeout(()=>{
+                copy.innerHTML = 'copy';
+            }, 3000);
+        });
+    });
 }
 
 window.addEventListener('click', anchorHandler);
