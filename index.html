@@ -96,6 +96,97 @@
                 <div class="cardWrap">
                     <div class="usageWrap">
                         <div class="usageCard">
+                            <div style="font-size: 1.5rem">옵션 설정</div>
+                            <div class="copyWrap">
+                                <div class="my-2">default 옵션 사용</div>
+                                <textarea disabled
+                                    style="width: 100%; height: 3.5em; border: none; overflow: hidden; resize: none">
+const typer = Typer.init();
+                                </textarea>
+                            </div>
+                            <div class="copyWrap">
+                                <div class="my-2">커스터마이징 옵션 사용</div>
+                                <textarea disabled
+                                    style="width: 100%; height: 18em; border: none; overflow: hidden; resize: none">
+const typer = Typer.init({
+    typer: {
+        speed: 0.1,
+        delay: 1,
+        loop: true,
+        loopDelay: 20,
+        // start: 0.3,
+        // eraseMode: true,
+        eraseSpeed: 0.1,
+        style: {
+            cursorBlink: 'horizontal'
+        },
+    }
+});
+                                </textarea>
+                            </div>
+                            <div class="copyWrap">
+                                <div class="my-2">커스터마이징 옵션 예제</div>
+                                <textarea disabled
+                                    style="width: 100%; height: 51em; border: none; overflow: hidden; resize: none">
+const typer = Typer.init({
+    typer: {
+        words: {
+            innerTitle: ['변경도 가능하구요.', '설명을 위한 모든 부분, 또는 출력되는 모든 부분에 적용 가능합니다.', '계속해서 버그를 수정하고, 새로운 효과를 추가할 예정이니 많은 관심 부탁드립니다.'],
+            box1: ['태그나 추가텍스트가 하나라도 존재하면 작동합니다.'],
+        },
+        custom: {
+            test: {
+                words: ['계속 변경될 수 있습니다.'],
+                dataset: {
+                    speed: 0.05,
+                    delay: 1,
+                    loop: true,
+                    loopDelay: 1,
+                    eraseMode: true,
+                    eraseSpeed: 0.1,
+                }
+            },
+            test2: {
+                words: ['지금은 다른 이름'],
+                dataset: {
+                    speed: 0.05,
+                    delay: 1,
+                    loop: true,
+                    loopDelay: 1,
+                    eraseMode: true,
+                    eraseSpeed: 0.1,
+                }
+            }
+        },
+        speed: 0.1,
+        delay: 1,
+        loop: true,
+        loopDelay: 20,
+        // start: 0.3,
+        // eraseMode: true,
+        eraseSpeed: 0.1,
+        style: {
+            cursorBlink: 'horizontal'
+        },
+    }
+});
+                                </textarea>
+                            </div>
+
+                            <div data-typer-name="box1" data-typer-speed="0.2" data-typer-delay="1"
+                                data-typer-loop="true" data-typer-start="1" data-typer-loop-delay="1"></div>
+                            <span class="explain">초기화 옵션 없이 적용해도 됩니다. 전역 커스터마이징은 초기화 옵션에서 설정합니다.
+                                <kbd>data-typer-name</kbd>대상은 <kbd>words</kbd>속성,
+                                <kbd>id</kbd>대상은 <kbd>custom</kbd>속성으로 추가, 지정을 합니다. 이때 <kbd>id</kbd>속성으로 지정한 대상은
+                                <kbd>style</kbd>외 속성은
+                                <kbd>custom</kbd>속성이 아닌 tag로 속성을 넣지 못합니다. <kbd>data-typer-*</kbd>와 <kbd>custom</kbd>설정을
+                                분리하기
+                                위함입니다.</span>
+                        </div>
+                    </div>
+
+                    <div class="usageWrap">
+                        <div class="usageCard">
                             <div class="code">
                                 <span>
                                     <div data-typer-name="box1" data-typer-speed="0.2" data-typer-delay="1"
