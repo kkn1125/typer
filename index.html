@@ -19,6 +19,12 @@
     </head>
 
     <body>
+        <!-- update modal -->
+
+        
+        <!-- update modal -->
+        
+        <!-- gnb start -->
         <div class="sticky-gnb">
             <nav class="gnb">
                 <div class="h3 ps-1 pe-3 mb-0 brand">
@@ -45,27 +51,51 @@
                 </div>
             </nav>
         </div>
-
+        <!-- gnb end -->
+        
+        <div id="update">
+            <div class="clearfix">
+                <span class="h3 float-start">Update Modal</span>
+                <span class="del-btn float-end">&times;</span>
+            </div>
+        </div>
+        <!-- docs start -->
         <div class="main">
             <div class="container">
                 <div class="divider-sm"></div>
-                <div class="h1" data-docs-anchor="title">
-                    Typer Docs
+                <div data-docs-anchor="title">
+                    <span class="h1">
+                        Typer Docs
+                    </span>
+                    <div class="my-2">
+                        <span class="badge bg-prime">
+                            Latest v0.2.1 pre-release
+                        </span>
+                        <span class="badge bg-info text-capitalize">
+                            author kimson
+                        </span>
+                        <span class="badge bg-info text-capitalize">
+                            since 2021.
+                        </span>
+                        <span class="badge bg-brand text-capitalize" data-docs-modal="update">
+                            update list
+                        </span>
+                    </div>
                 </div>
                 <div class="h3" id="typer" data-docs-anchor="typer">Typer는 무엇인가</div>
                 <div class="h6 pointBox" data-typer-name="innerTitle" data-typer-erase-mode="true"
-                    data-typer-erase-speed="0.01" data-typer-cursor-blink="vertical">
-                    Typer는 텍스트 타이핑 효과를 쉽게 사용할 수 있도록 구현되었습니다.
-                </div>
+                data-typer-erase-speed="0.01" data-typer-cursor-blink="vertical">
+                👦: Typer는 텍스트 타이핑 효과를 쉽게 사용할 수 있도록 구현되었습니다.
             </div>
-            <div class="container">
-                <div class="h3" id="usage" data-docs-anchor="usage">사용법</div>
-                <div class="my-3">
-                    <div class="h4" data-docs-anchor="explain">설명</div>
-                </div>
-                <div class="h6 pointBox" data-typer-name="innerTitle2" data-typer-erase-mode="true"
-                    data-typer-erase-speed="0.1" data-typer-cursor-blink="vertical">
-                    data-typer-* 속성으로 이루어져 있으며 속성 값을 특정한 것이 아니기때문에 자유롭게 개인 취향에 따라 타이핑 효과를 커스터마이징 할 수 있습니다.
+        </div>
+        <div class="container">
+            <div class="h3" id="usage" data-docs-anchor="usage">사용법</div>
+            <div class="my-3">
+                <div class="h4" data-docs-anchor="explain">설명</div>
+            </div>
+            <div class="h6 pointBox" data-typer-name="innerTitle2" data-typer-erase-mode="true"
+            data-typer-erase-speed="0.1" data-typer-cursor-blink="vertical">
+            data-typer-* 속성으로 이루어져 있으며 속성 값을 특정한 것이 아니기때문에 자유롭게 개인 취향에 따라 타이핑 효과를 커스터마이징 할 수 있습니다.
                 </div>
 
                 <div class="divider"></div>
@@ -78,12 +108,12 @@
                     이후 <kbd>Typer</kbd>를 초기화하는 것은 <kbd>typer.js</kbd>|<kbd>cdn</kbd> 다음에 선언되어야 합니다.
                 </div>
                 <div class="copyWrap">
-                    <textarea disabled style="width: 100%; border: none; overflow: hidden; resize: none"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v020/typer.css" integrity="sha384-VbWnIJQSG+E1SZUWa0XR8wgy50XDwAcF9A0vNbtXqGvWUP9BiHJg8L3UFXQv9a14" crossorigin="anonymous">
+                    <textarea disabled style="border: none; overflow: hidden; resize: none"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v020/typer.css" integrity="sha384-VbWnIJQSG+E1SZUWa0XR8wgy50XDwAcF9A0vNbtXqGvWUP9BiHJg8L3UFXQv9a14" crossorigin="anonymous">
                     </textarea>
                 </div>
 
                 <div class="copyWrap">
-                    <textarea disabled style="width: 100%; border: none; overflow: hidden; resize: none"><script src="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v020/typer.js" integrity="sha384-TjFbiXfZsWbm5r2BN+wk//8Y2G4UW+IJTvn+Hi69spImwbD0+SLOA55rMC2ScW10" crossorigin="anonymous"></script>
+                    <textarea disabled style="border: none; overflow: hidden; resize: none"><script src="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v020/typer.js" integrity="sha384-TjFbiXfZsWbm5r2BN+wk//8Y2G4UW+IJTvn+Hi69spImwbD0+SLOA55rMC2ScW10" crossorigin="anonymous"></script>
                     </textarea>
                 </div>
 
@@ -100,14 +130,14 @@
                             <div class="copyWrap">
                                 <div class="my-2">default 옵션 사용</div>
                                 <textarea disabled
-                                    style="width: 100%; height: 3.5em; border: none; overflow: hidden; resize: none">
+                                    style="border: none; overflow: hidden; resize: none">
 const typer = Typer.init();
                                 </textarea>
                             </div>
                             <div class="copyWrap">
                                 <div class="my-2">커스터마이징 옵션 사용</div>
                                 <textarea disabled
-                                    style="width: 100%; height: 18em; border: none; overflow: hidden; resize: none">
+                                    style="border: none; overflow: hidden; resize: none">
 const typer = Typer.init({
     typer: {
         speed: 0.1,
@@ -127,7 +157,7 @@ const typer = Typer.init({
                             <div class="copyWrap">
                                 <div class="my-2">커스터마이징 옵션 예제</div>
                                 <textarea disabled
-                                    style="width: 100%; height: 51em; border: none; overflow: hidden; resize: none">
+                                    style="border: none; overflow: hidden; resize: none">
 const typer = Typer.init({
     typer: {
         words: {
@@ -189,15 +219,13 @@ const typer = Typer.init({
                         <div class="usageCard">
                             <div class="code">
                                 <span>
-                                    <div data-typer-name="box1" data-typer-speed="0.2" data-typer-delay="1"
-                                        data-typer-loop="true" data-typer-start="1" data-typer-loop-delay="1"
+                                    <div data-typer-name="box2"
                                         typer-exam>텍스트
                                         입력
                                     </div>
                                 </span>
                             </div>
-                            <div data-typer-name="box1" data-typer-speed="0.2" data-typer-delay="1"
-                                data-typer-loop="true" data-typer-start="1" data-typer-loop-delay="1"></div>
+                            <div data-typer-name="box2">빠른 시작을 위해서 "data-typer-name"만 설정하고 시작할 수 있습니다. 단, 나머지 speed, loop 등의 속성은 전역 속성을 따릅니다.</div>
                             <span class="explain">태그 내부에 텍스트를 기입하거나 초기화 옵션에서 지정한 words가 타이핑 됩니다.</span>
                         </div>
                     </div>
@@ -229,7 +257,7 @@ const typer = Typer.init({
                         <div class="usageCard">
                             <div class="code">
                                 <span>
-                                    <div data-typer-name="box2" data-typer-speed="0.05" data-typer-delay="1"
+                                    <div data-typer-name="box3" data-typer-speed="0.05" data-typer-delay="1"
                                         data-typer-loop="true" data-typer-start="1" data-typer-loop-delay="1"
                                         data-typer-cursor-blink="vertical" data-typer-erase-mode="true"
                                         data-typer-erase-speed="0.06" typer-exam>텍스트
@@ -237,7 +265,7 @@ const typer = Typer.init({
                                     </div>
                                 </span>
                             </div>
-                            <div data-typer-name="box2" data-typer-speed="0.05" data-typer-delay="1"
+                            <div data-typer-name="box3" data-typer-speed="0.05" data-typer-delay="1"
                                 data-typer-loop="true" data-typer-start="1" data-typer-loop-delay="1"
                                 data-typer-cursor-blink="vertical" data-typer-erase-mode="true"
                                 data-typer-erase-speed="0.06">
@@ -251,9 +279,13 @@ const typer = Typer.init({
 
             </div>
         </div>
+        <!-- docs end -->
+
         <div class="divider"></div>
         <div class="divider"></div>
         <div class="divider"></div>
+
+        <!-- footer start -->
         <div data-docs-anchor="footer"></div>
         <footer class="footer">
             <div>
@@ -263,21 +295,22 @@ const typer = Typer.init({
                     </a>
                     <span class="vt"></span>
                     <a href="https://kkn1125.github.io/" target="_blank">
-                        Kimson Blog
+                        개발자 블로그
                     </a>
                     <span class="vt"></span>
                     <a href="chaplet01@gmail.com" target="_blank">
-                        Send Mail
+                        문의하기
                     </a>
                 </div>
                 <hr>
                 <div class="text-center copyright py-4">
-                    copyright 2021 Typer Authors
+                    copyright 2021. Typer Authors <time></time>
                     <br>
                     made by kimson
                 </div>
             </div>
         </footer>
+        <!-- footer end -->
 
         <script src="typer.js"></script>
         <script src="assets/js/docs.js"></script>

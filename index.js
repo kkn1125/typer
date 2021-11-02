@@ -6,7 +6,7 @@ const typer = Typer.init({
         },
         custom: {
             test: {
-                words: ['계속 변경될 수 있습니다.'],
+                words: ['cursor-blink 속성을 필요한 곳에 적용 혹은 미적용 가능합니다.'],
                 dataset: {
                     speed: 0.05,
                     delay: 1,
