@@ -1,5 +1,5 @@
 /**
- * Typing v0.2.0 (https://github.com/kkn1125/typer)
+ * Typing v0.2.1 (https://github.com/kkn1125/typer)
  * Copyright 2021 The Typer Authors kimson
  * Licensed under MIT (https://github.com/kkn1125/typer/blob/main/LICENSE)
  */
@@ -46,6 +46,7 @@ function titleHandler(){
         copy.innerHTML = 'copy';
         copy.classList.add('copy');
         t.insertAdjacentElement('afterend',copy);
+        t.style.height = `${t.scrollHeight - 16}px`;
         copy.addEventListener('click',(ev)=>{
             let tg = ev.target.previousElementSibling;
             let tx = document.createElement('textarea');
@@ -76,4 +77,66 @@ function anchorHandler(ev){
         let navHeight = 56;
         window.scrollTo(0, top-navHeight);
     }
+}
+
+window.addEventListener('load', requestMarkdown);
+function requestMarkdown(){
+    let xhr = new XMLHttpRequest();
+    xhr.addEventListener('readystatechange', getUpdate.bind(xhr, parsingMd));
+    xhr.open('get', location.pathname.split('/').filter(x=>!x.match('.html')).join('')+'/UPDATE.md');
+    xhr.send();
+}
+
+function getUpdate(callback, ev){
+    let target = ev.target;
+    if(target.status == 200 || target.status == 201){
+        if(target.readyState == 4){
+            let parseArr = target.responseText.split(/\n/);
+            callback(parseArr);
+        }
+    }
+}
+
+function parsingMd(arr){
+    arr = arr.map(x=>x.replace(/[\r]/gm,''));
+    
+    arr = arr.map(x=>{
+        let hash = x.match(/^[#]+/gm);
+        if(hash) {
+            hash = 6-parseInt(hash.map(x=>x.split('').length).join(''));
+            return `<h${hash}>${x.replace(/[#]+/gm, '')}</h${hash}>`;
+        }
+        return `<p>${x}</p>`;
+    });
+    arr = arr.map(x=>{
+        let len = x.match(/\-+/gm);
+        if(len) {
+            let line = len.map(x=>x.length);
+            if(line>3)
+            return `<hr>`;
+            else return x;
+        } else {
+            return x;
+        }
+    });
+    arr = arr.map(x=>{
+        let tap = x.replace(/\<p\>\s/,'<p><span class=\'tab\'></span>');
+        return tap;
+    });
+
+    arr = arr.join('\n');
+    document.querySelector('#update').innerHTML += arr;
+}
+
+window.addEventListener('click', modalHandler);
+function modalHandler(ev){
+    let target = ev.target;
+    let update = document.querySelector('#update');
+    if(target.id !== 'update' && update.classList.contains('show')) {
+        update.classList.remove('show');
+        return;
+    }
+    if(target.tagName !== 'SPAN' || target.dataset.docsModal !== 'update') return;
+
+    update.classList.toggle('show');
 }

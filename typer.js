@@ -1,5 +1,5 @@
 /**
- * Typing v0.2.0 (https://github.com/kkn1125/typer)
+ * Typing v0.2.1 (https://github.com/kkn1125/typer)
  * Copyright 2021 The Typer Authors kimson
  * Licensed under MIT (https://github.com/kkn1125/typer/blob/main/LICENSE)
  */
@@ -46,14 +46,15 @@ const Typer = (function () {
         }
 
         this.applyStyleToWritableData = function (style) {
-            if (style)
+            if (style){
                 typingBundle.forEach(item => {
-                    for(let st in style){
+                    for (let st in style) {
                         let upper = st.charAt().toUpperCase() + st.slice(1);
-                        if(!item.target.dataset[`typer${upper}`])
-                        item.target.dataset[`typer${upper}`] = style[st];
+                        if (!item.target.dataset[`typer${upper}`])
+                            item.target.dataset[`typer${upper}`] = style[st];
                     }
                 });
+            }
         }
 
         this.findWritableDataInWeb = function () {
@@ -75,17 +76,13 @@ const Typer = (function () {
 
         this.requestCustomizeTyping = function () {
             let addedWords = [];
-            let target = '';
-            let separatedWords = '';
-            let readyToTyping = '';
-            let concatText = '';
-            let words = '';
+            let target, separatedWords, readyToTyping, concatText, words;
             let custom = initOptions.typer.custom;
             for (let item in custom) {
                 let innerHTML = custom[item].words;
                 try {
                     target = this.validTargetByName(item);
-                    if(target.getAttribute('typer-exam')!=null) continue;
+                    if (target.getAttribute('typer-exam') != null) continue;
                     let dataset = target.dataset;
                     for (let data in custom[item].dataset) {
                         let typerData = 'typer' + data.charAt().toUpperCase() + data.slice(1);
@@ -189,13 +186,14 @@ const Typer = (function () {
                             color: red;
                         `;
                         words = '타겟에 지정된 내용이 없습니다.';
+                        addedWords.push(this.getConcat(this.getTyping(this.getSeparate(words))));
+                        target.dataset.typerLoop="false";
                         throw new Error(`[NoTextException] ${words} 타겟명 : ${item.name}`);
                     } else {
                         words = innerHTML;
                     }
                 } catch (e) {
                     console.error(e.message);
-                    return;
                 }
             }
 
@@ -259,12 +257,13 @@ const Typer = (function () {
 
         this.getSeparate = function (data) {
             let ref = [];
-            data.split('').forEach(x => {
+            let firstFilter = data.split(/(.*?)/u).filter(x => x != '');
+            firstFilter.forEach(x => {
                 let math = x.charCodeAt() - 44032;
                 let ft = Math.floor(math / 588);
                 let mt = Math.floor((math - (ft * 588)) / 28);
                 let lt = Math.floor(math % 28);
-                if (math < 0) ref.push(x);
+                if (math < 0 || math > 11171) ref.push(x);
                 else ref.push([moduleHangul.f[ft], moduleHangul.m[mt], moduleHangul.l[lt]]);
             });
             return ref;
@@ -282,11 +281,11 @@ const Typer = (function () {
                         if (a[1] == '' && a[2] == '') {
                             tmp.push(moduleHangul.f[moduleHangul.f.indexOf(a[0])]);
                         } else {
-                            tmp.push(String.fromCharCode(sf + sm + sl + 44032)); // 7028
+                            tmp.push(String.fromCharCode(sf + sm + sl + 44032));
                         }
                     });
                 } else {
-                    if (x.length == 1) tmp.push(x[0]);
+                    if (x.length !== 3) tmp.push(x[0]);
                     else {
                         let sf = moduleHangul.f.indexOf(x[0]) * 588;
                         let sm = moduleHangul.m.indexOf(x[1]) * 28;
@@ -294,7 +293,7 @@ const Typer = (function () {
                         if (x[1] == '' && x[2] == '') {
                             tmp.push(moduleHangul.f[moduleHangul.f.indexOf(x[0])]);
                         } else {
-                            tmp.push(String.fromCharCode(sf + sm + sl + 44032)); // 7028
+                            tmp.push(String.fromCharCode(sf + sm + sl + 44032));
                         }
                     }
                 }
@@ -350,6 +349,7 @@ const Typer = (function () {
         }
 
         this.doWriting = function (target, data, speed, callBack) {
+            let initDisplay = requestAnimationFrame(this.initializeDisplay.bind(this, target));
             let tmp = '',
                 repo = '',
                 i = 0,
@@ -378,6 +378,18 @@ const Typer = (function () {
                     clearInterval(tps);
                 }
             }, speed * 1000);
+        }
+
+        this.initializeDisplay = function(target){
+            let style = null;
+            style = getComputedStyle(target)['opacity'];
+            if(style === '0'){
+                target.style.transition = '300ms';
+                target.dataset.typerWriteMode = 'on';
+                cancelAnimationFrame(0);
+            } else {
+                requestAnimationFrame(this.initializeDisplay.bind(this, target));
+            }
         }
     }
 
