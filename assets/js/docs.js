@@ -71,11 +71,16 @@ function anchorHandler(ev){
     ev.preventDefault();
     let href = target.getAttribute('href').slice(1);
     let anchor = document.querySelector(`[data-docs-anchor="${href}"]`);
-    if(href=='') window.scrollTo(0, 0);
-    else {
+    if(target.offsetParent.id == 'update') {
         let top = anchor.offsetTop;
-        let navHeight = 56;
-        window.scrollTo(0, top-navHeight);
+        target.offsetParent.scrollTo(0,top);
+    } else {
+        if(href=='') window.scrollTo(0, 0);
+        else {
+            let top = anchor.offsetTop;
+            let navHeight = 56;
+            window.scrollTo(0, top-navHeight);
+        }
     }
 }
 
@@ -103,11 +108,12 @@ function parsingMd(arr){
     arr = arr.map(x=>{
         let hash = x.match(/^[#]+/gm);
         if(hash) {
-            hash = 6-parseInt(hash.map(x=>x.split('').length).join(''));
-            return `<h${hash}>${x.replace(/[#]+/gm, '')}</h${hash}>`;
+            hash = parseInt(hash.map(x=>x.split('').length).join(''));
+            return `<h${hash} id="update-${x.replace(/[#]+/gm, '').trim().replace(/[\s\.]/gm,'-')}" data-docs-anchor="update-${x.replace(/[#]+/gm, '').trim().replace(/[\s\.]/gm,'-')}">${x.replace(/[#]+/gm, '')}</h${hash}>`;
         }
         return `<p>${x}</p>`;
     });
+
     arr = arr.map(x=>{
         let len = x.match(/\-+/gm);
         if(len) {
@@ -119,12 +125,27 @@ function parsingMd(arr){
             return x;
         }
     });
+
     arr = arr.map(x=>{
         let tap = x.replace(/\<p\>\s/,'<p><span class=\'tab\'></span>');
         return tap;
     });
 
+    arr = arr.map(x=>{
+        let bold = x.replace(/\*+([\w\D]+?)\*+/gm,'<span class="fw-bold">$1</span>');
+        return bold;
+    });
+
+    arr = arr.map(x=>{
+        let text = x.match(/\[[\w\D]+\]/gm);
+        if(text){
+            return `<a style="pointer-events: all;" href="#update-${text[0].replace(/[\[\]]/gm,'').replace(/[\s\.]/gm, '-')}">${text[0]}</a>`
+        }
+        return x;
+    })
+
     arr = arr.join('\n');
+    // console.log(arr)
     document.querySelector('#update').innerHTML += arr;
 }
 
@@ -132,7 +153,7 @@ window.addEventListener('click', modalHandler);
 function modalHandler(ev){
     let target = ev.target;
     let update = document.querySelector('#update');
-    if(target.id !== 'update' && update.classList.contains('show')) {
+    if(target.id !== 'update' && update.classList.contains('show') && (target.offsetParent.id !== 'update' || target.classList.contains('del-btn'))) {
         update.classList.remove('show');
         return;
     }

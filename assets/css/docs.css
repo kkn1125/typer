@@ -533,6 +533,11 @@ body *:not(script){
     margin: 1em 0;
 }
 
+#update .fw-bold{
+    font-style: italic;
+    color:rgb(160, 160, 160);
+}
+
 .badge{
     background: rgb(192, 192, 192);
     color: rgb(61, 61, 61);

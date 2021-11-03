@@ -58,6 +58,7 @@
                 <span class="h3 float-start">Update Modal</span>
                 <span class="del-btn float-end">&times;</span>
             </div>
+            <hr class="mb-5">
         </div>
         <!-- docs start -->
         <div class="main">
@@ -108,12 +109,12 @@
                     이후 <kbd>Typer</kbd>를 초기화하는 것은 <kbd>typer.js</kbd>|<kbd>cdn</kbd> 다음에 선언되어야 합니다.
                 </div>
                 <div class="copyWrap">
-                    <textarea disabled style="border: none; overflow: hidden; resize: none"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v020/typer.css" integrity="sha384-VbWnIJQSG+E1SZUWa0XR8wgy50XDwAcF9A0vNbtXqGvWUP9BiHJg8L3UFXQv9a14" crossorigin="anonymous">
+                    <textarea disabled style="border: none; overflow: hidden; resize: none"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v021/typer.css" integrity="sha384-WlGS/BGsTdvbKjfrZ9IJE45xkq8xElk1ASfEwycwMlwu0DO+shSOgBF/odcC4afX" crossorigin="anonymous">
                     </textarea>
                 </div>
 
                 <div class="copyWrap">
-                    <textarea disabled style="border: none; overflow: hidden; resize: none"><script src="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v020/typer.js" integrity="sha384-TjFbiXfZsWbm5r2BN+wk//8Y2G4UW+IJTvn+Hi69spImwbD0+SLOA55rMC2ScW10" crossorigin="anonymous"></script>
+                    <textarea disabled style="border: none; overflow: hidden; resize: none"><script src="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v021/typer.js" integrity="sha384-s62GQWchBcBh82YhldUNQK9Cqw6iFB+eBau07ihjICofE7TLkSimbCI4+djd4soo" crossorigin="anonymous"></script>
                     </textarea>
                 </div>
 
@@ -161,8 +162,8 @@ const typer = Typer.init({
 const typer = Typer.init({
     typer: {
         words: {
-            innerTitle: ['변경도 가능하구요.', '설명을 위한 모든 부분, 또는 출력되는 모든 부분에 적용 가능합니다.', '계속해서 버그를 수정하고, 새로운 효과를 추가할 예정이니 많은 관심 부탁드립니다.'],
-            box1: ['태그나 추가텍스트가 하나라도 존재하면 작동합니다.'],
+            innerTitle: ['메세지를 추가하세요.', '여러 개 가능합니다.'],
+            box1: '입력 메세지가 하나라면 배열없이 문자열만 입력 가능합니다.'
         },
         custom: {
             test: {

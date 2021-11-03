@@ -23,6 +23,11 @@
 ### CDN 사용
 
 ```html
+<!-- v0.2.1 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v021/typer.css" integrity="sha384-WlGS/BGsTdvbKjfrZ9IJE45xkq8xElk1ASfEwycwMlwu0DO+shSOgBF/odcC4afX" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v021/typer.js" integrity="sha384-s62GQWchBcBh82YhldUNQK9Cqw6iFB+eBau07ihjICofE7TLkSimbCI4+djd4soo" crossorigin="anonymous"></script>
+
 <!-- v0.2.0 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v020/typer.css" integrity="sha384-VbWnIJQSG+E1SZUWa0XR8wgy50XDwAcF9A0vNbtXqGvWUP9BiHJg8L3UFXQv9a14" crossorigin="anonymous">
 
