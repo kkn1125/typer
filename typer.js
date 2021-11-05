@@ -1,5 +1,5 @@
 /**
- * Typing v0.2.1 (https://github.com/kkn1125/typer)
+ * Typing v1.0.0 (https://github.com/kkn1125/typer)
  * Copyright 2021 The Typer Authors kimson
  * Licensed under MIT (https://github.com/kkn1125/typer/blob/main/LICENSE)
  */
@@ -212,10 +212,11 @@ const Typer = (function () {
                 let loopDelay = data.typerLoopDelay ? parseFloat(data.typerLoopDelay) : initOptions.typer.loopDelay;
                 let eraseMode = data.typerEraseMode ? (data.typerEraseMode == 'false' ? false : true) : initOptions.typer.eraseMode;
                 let eraseSpeed = data.typerEraseSpeed ? parseFloat(data.typerEraseSpeed) : initOptions.typer.eraseSpeed;
+                let realTyping = data.typerRealTyping ? (data.typerRealTyping == 'false' ? false : true) : initOptions.typer.realTyping;
                 if (delay < 1) delay = 1;
                 if (loopDelay < 1) loopDelay = 1;
 
-                moduleView.doWriting(this.target, this.typing[this.order], speed, isReturn.bind(this));
+                moduleView.doWriting(this.target, this.typing[this.order], speed, realTyping, isReturn.bind(this));
 
                 function isReturn(fullText) {
                     if (eraseMode) {
@@ -348,13 +349,25 @@ const Typer = (function () {
             uiElem = ui;
         }
 
-        this.doWriting = function (target, data, speed, callBack) {
+        this.doWriting = function (target, data, speed, realTyping, callBack) {
             let initDisplay = requestAnimationFrame(this.initializeDisplay.bind(this, target));
             let tmp = '',
                 repo = '',
                 i = 0,
                 q = 0;
+
             let tps = setInterval(() => {
+                if(realTyping){
+                    if(Math.random()*60>45){
+                        q--;
+                        setTimeout(()=>{
+                            if(Math.random()*50>47){
+                                q-=2;
+                            }
+                        }, parseInt(Math.random()*10))
+                    }
+                }
+
                 try {
                     if (data.length == 0) {
                         clearInterval(tps);
@@ -365,7 +378,7 @@ const Typer = (function () {
                     return;
                 }
                 if (target.tagName == 'TITLE') tmp = `${data[i][q]}`;
-                else tmp = `<span>${data[i][q]}</span>`;
+                else tmp = `<span>${data[i][q]?data[i][q]:''}</span>`;
                 q++;
                 target.innerHTML = repo + tmp;
                 if (q > data[i].length - 1) {
@@ -427,6 +440,7 @@ const Typer = (function () {
                     start: 0,
                     eraseMode: false,
                     eraseSpeed: 0.1,
+                    realTyping: false,
                     style: {
                         cursorBlink: 'vertical'
                     },
