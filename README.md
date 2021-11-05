@@ -1,4 +1,5 @@
 # typer
+
 한글 및 영문, 문자, 특수문자를 타자순으로 입력하는 효과를 쉽게 만들어 주는 어플리케이션
 
 ## 사용법
@@ -23,6 +24,9 @@
 ### CDN 사용
 
 ```html
+<!-- v1.0.0 -->
+
+
 <!-- v0.2.1 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v021/typer.css" integrity="sha384-WlGS/BGsTdvbKjfrZ9IJE45xkq8xElk1ASfEwycwMlwu0DO+shSOgBF/odcC4afX" crossorigin="anonymous">
 
@@ -64,6 +68,7 @@ const typer = Typer.init({
                     loopDelay: 1,
                     eraseMode: true,
                     eraseSpeed: 0.1,
+                    realTyping: true,
                 }
             },
             test2: {
@@ -86,6 +91,7 @@ const typer = Typer.init({
         start: 0,
         eraseMode: false,
         eraseSpeed: 0.1,
+        realTyping: false,
         style: {
             cursorBlink: 'vertical'
         },
@@ -107,7 +113,8 @@ const typer = Typer.init({
 |7|start|타이핑 객체 전역의 타이핑 시작시간을 지연합니다.|1|s|
 |8|eraseMode|타이핑 객체 전역의 eraseMode 적용을 합니다.|false|boolean|
 |9|eraseSpeed|타이핑 객체 전역의 erase 속도를 지정합니다.|0.1|s|
-|10|style|타이핑 관련 css를 전역에 지정합니다.|-||
+|10|realTyping|타이핑 객체 전역의 실제 타이핑 효과를 적용합니다|false|boolean|
+|11|style|타이핑 관련 css를 전역에 지정합니다.|-||
 |ㄴ|cursorBlink|커서 깜빡임 스타일을 지정합니다.|'vertical'|string|
 
 ### 태그 속성 값 설정
@@ -124,7 +131,8 @@ const typer = Typer.init({
 |6|start|대상 태그의 타이핑 시작을 지연시킵니다.|전역옵션|s|
 |7|eraseMode|대상 태그의 다음 타이핑으로 넘어가기 전 지우는 효과를 적용합니다.|전역옵션|boolean|
 |8|eraseSpeed|대상 태그의 타이핑 eraseMode 속도를 지정합니다.|전역옵션|s|
-|9|cursorBlink|대상 태그의 타이핑 css를 단일 지정합니다.|전역옵션|string|
+|9|realTyping|대상 태그의 실제 타이핑 효과를 적용합니다|전역옵션|boolean|
+|10|cursorBlink|대상 태그의 타이핑 css를 단일 지정합니다.|전역옵션|string|
 
 
 ### 기본 원리

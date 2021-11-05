@@ -14,6 +14,7 @@ const typer = Typer.init({
                     loopDelay: 1,
                     eraseMode: true,
                     eraseSpeed: 0.1,
+                    realTyping: true,
                 }
             },
             test2: {
@@ -31,10 +32,11 @@ const typer = Typer.init({
         speed: 0.1,
         delay: 1,
         loop: true,
-        loopDelay: 20,
+        loopDelay: 5,
         // start: 0.3,
         // eraseMode: true,
         eraseSpeed: 0.1,
+        realTyping: false,
         style: {
             cursorBlink: 'horizontal'
         },
