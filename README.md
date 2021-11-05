@@ -25,7 +25,9 @@
 
 ```html
 <!-- v1.0.0 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@vv100/typer.css" integrity="sha384-72aQAReU+HRrgKRCBZ3h9JpFQmjl3vjb6bOeFdyCVDxJ/O3f3JQROWhfcLCcKbUd" crossorigin="anonymous">
 
+<script src="https://cdn.jsdelivr.net/gh/kkn1125/typer@vv100/typer.js" integrity="sha384-7Yty6xCpiwX7zzSEtcqCQZlrZ3rERd8hrWTTo9/Xa/iA5Tg/iqbJdnCngimPL/PF" crossorigin="anonymous"></script>
 
 <!-- v0.2.1 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v021/typer.css" integrity="sha384-WlGS/BGsTdvbKjfrZ9IJE45xkq8xElk1ASfEwycwMlwu0DO+shSOgBF/odcC4afX" crossorigin="anonymous">
