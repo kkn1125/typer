@@ -109,12 +109,12 @@
                     이후 <kbd>Typer</kbd>를 초기화하는 것은 <kbd>typer.js</kbd>|<kbd>cdn</kbd> 다음에 선언되어야 합니다.
                 </div>
                 <div class="copyWrap">
-                    <textarea disabled style="border: none; overflow: hidden; resize: none"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v021/typer.css" integrity="sha384-WlGS/BGsTdvbKjfrZ9IJE45xkq8xElk1ASfEwycwMlwu0DO+shSOgBF/odcC4afX" crossorigin="anonymous">
+                    <textarea disabled style="border: none; overflow: hidden; resize: none"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kkn1125/typer@vv100/typer.css" integrity="sha384-72aQAReU+HRrgKRCBZ3h9JpFQmjl3vjb6bOeFdyCVDxJ/O3f3JQROWhfcLCcKbUd" crossorigin="anonymous">
                     </textarea>
                 </div>
 
                 <div class="copyWrap">
-                    <textarea disabled style="border: none; overflow: hidden; resize: none"><script src="https://cdn.jsdelivr.net/gh/kkn1125/typer@update-v021/typer.js" integrity="sha384-s62GQWchBcBh82YhldUNQK9Cqw6iFB+eBau07ihjICofE7TLkSimbCI4+djd4soo" crossorigin="anonymous"></script>
+                    <textarea disabled style="border: none; overflow: hidden; resize: none"><script src="https://cdn.jsdelivr.net/gh/kkn1125/typer@vv100/typer.js" integrity="sha384-7Yty6xCpiwX7zzSEtcqCQZlrZ3rERd8hrWTTo9/Xa/iA5Tg/iqbJdnCngimPL/PF" crossorigin="anonymous"></script>
                     </textarea>
                 </div>
 
@@ -148,6 +148,7 @@ const typer = Typer.init({
         // start: 0.3,
         // eraseMode: true,
         eraseSpeed: 0.1,
+        realTyping: false,
         style: {
             cursorBlink: 'horizontal'
         },
@@ -186,6 +187,7 @@ const typer = Typer.init({
                     loopDelay: 1,
                     eraseMode: true,
                     eraseSpeed: 0.1,
+                    realTyping: true,
                 }
             }
         },
@@ -196,6 +198,7 @@ const typer = Typer.init({
         // start: 0.3,
         // eraseMode: true,
         eraseSpeed: 0.1,
+        realTyping: false,
         style: {
             cursorBlink: 'horizontal'
         },
@@ -275,6 +278,29 @@ const typer = Typer.init({
                             <span class="explain">속성을 전부 적용시킨 예제입니다.</span>
                         </div>
                     </div>
+                    <div class="usageWrap">
+                        <div class="usageCard">
+                            <div class="code">
+                                <span>
+                                    <div data-typer-name="box4" data-typer-speed="0.05" data-typer-delay="1"
+                                        data-typer-loop="true" data-typer-start="1" data-typer-loop-delay="1"
+                                        data-typer-cursor-blink="vertical" data-typer-erase-mode="true"
+                                        data-typer-erase-speed="0.05"
+                                        data-typer-real-typing="true" typer-exam>텍스트
+                                        입력
+                                    </div>
+                                </span>
+                            </div>
+                            <div data-typer-name="box4" data-typer-speed="0.05" data-typer-delay="1"
+                                data-typer-loop="true" data-typer-start="1" data-typer-loop-delay="1"
+                                data-typer-cursor-blink="vertical" data-typer-erase-mode="true"
+                                data-typer-real-typing="true"
+                                data-typer-erase-speed="0.05">
+                                realTyping 속성이 적용된 예제입니다.
+                            </div>
+                            <span class="explain">v1.0.0 릴리즈 하며 새로 추가된 <kbd>realTyping</kbd>모드 입니다.</span>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -299,7 +325,7 @@ const typer = Typer.init({
                         개발자 블로그
                     </a>
                     <span class="vt"></span>
-                    <a href="chaplet01@gmail.com" target="_blank">
+                    <a href="https://kkn1125.github.io/contact" target="_blank">
                         문의하기
                     </a>
                 </div>
