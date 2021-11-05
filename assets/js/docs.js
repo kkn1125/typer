@@ -88,7 +88,7 @@ window.addEventListener('load', requestMarkdown);
 function requestMarkdown(){
     let xhr = new XMLHttpRequest();
     xhr.addEventListener('readystatechange', getUpdate.bind(xhr, parsingMd));
-    xhr.open('get', location.pathname.split('/').filter(x=>!x.match('.html')).join('')+'/UPDATE.md');
+    xhr.open('get', '/UPDATE.md');
     xhr.send();
 }
 
