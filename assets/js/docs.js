@@ -88,7 +88,7 @@ window.addEventListener('load', requestMarkdown);
 function requestMarkdown(){
     let xhr = new XMLHttpRequest();
     xhr.addEventListener('readystatechange', getUpdate.bind(xhr, parsingMd));
-    xhr.open('get', '/UPDATE.md');
+    xhr.open('get', `${location.origin+location.pathname}UPDATE.md`);
     xhr.send();
 }
 
